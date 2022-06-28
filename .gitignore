@@ -1,5 +1,5 @@
 /venv/
 /server/__pycache__/
-/server/iotdata.db
+# /server/iotdata.db
 .env
 .vscode/
