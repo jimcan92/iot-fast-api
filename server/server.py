@@ -11,6 +11,18 @@ app.add_middleware(CORSMiddleware)
 @app.on_event("startup")
 async def database_connect():
     await database.connect()
+    query = f'''
+    CREATE TABLE IF NOT EXISTS {iot_data_table} (
+        id INTEGER PRIMARY KEY UNIQUE,
+        device_id TEXT,
+        bldg_name TEXT,
+        room_name TEXT,
+        temp REAL,
+        humd REAL,
+        created_at TEXT
+    )
+    '''
+    await database.execute(query)
 
 
 @app.on_event("shutdown")
