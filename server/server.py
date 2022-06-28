@@ -24,6 +24,9 @@ async def database_connect():
     '''
     await database.execute(query)
 
+    y = await database.fetch_all(f'SELECT * FROM {iot_data_table}')
+    print(y)
+
 
 @app.on_event("shutdown")
 async def database_disconnect():
