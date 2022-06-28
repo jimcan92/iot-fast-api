@@ -1,12 +1,13 @@
 from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
 class IotDataSchema(BaseModel):
-    device_id: str | None
-    bldg_name: str | None
-    room_name: str | None
-    temp: float | int | None
-    humd: float | int | None
+    device_id: Optional[str]
+    bldg_name: Optional[str]
+    room_name: Optional[str]
+    temp: Optional[float]
+    humd: Optional[float]
     created_at: datetime = datetime.now()
 
     class Config:
